@@ -1,0 +1,21 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#9427dd",
+    "titleBar.activeForeground": "#fff",
+    "titleBar.border": "#fff"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.singleQuote": true,
+  "prettier.arrowParens": "always",
+  "prettier.jsxSingleQuote": false,
+  "prettier.jsxBracketSameLine": false,
+  "prettier.trailingComma": "es5",
+  "prettier.semi": true,
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+  "javascript.format.semicolons": "insert",
+  "css.completion.completePropertyWithSemicolon": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "files.trimFinalNewlines": true
+}
