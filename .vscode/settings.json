@@ -7,7 +7,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.singleQuote": true,
   "prettier.arrowParens": "always",
-  "prettier.jsxSingleQuote": false,
+  "prettier.jsxSingleQuote": true,
   "prettier.jsxBracketSameLine": false,
   "prettier.trailingComma": "es5",
   "prettier.semi": true,
