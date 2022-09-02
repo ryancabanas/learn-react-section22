@@ -20,53 +20,37 @@ const AuthForm = () => {
     const enteredPassword = passwordInputRef.current.value;
 
     setIsLoading(true);
+    let url;
 
     if (isLogin) {
-      try {
-        const response = await axios.post(
-          'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB5SPgVo4pmAk4yVeyaQSAU7jIum-sQ92w',
-          {
-            email: enteredEmail,
-            password: enteredPassword,
-            returnSecureToken: true,
-          },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        );
-
-        console.log(response.data);
-      } catch (error) {
-        const errorDetails = error.response.data.error;
-        alert(errorDetails.message);
-      } finally {
-        setIsLoading(false);
-      }
+      url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCGSc-FGN6wWEFYCZJeg-iZar0kgMfY0fM';
     } else {
-      try {
-        const response = await axios.post(
-          'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyB5SPgVo4pmAk4yVeyaQSAU7jIum-sQ92w',
-          {
-            email: enteredEmail,
-            password: enteredPassword,
-            returnSecureToken: true,
-          },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        );
+      url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCGSc-FGN6wWEFYCZJeg-iZar0kgMfY0fM';
+    }
 
-        console.log(response);
-      } catch (error) {
-        const errorDetails = error.response.data.error;
-        alert(errorDetails.message);
-      } finally {
-        setIsLoading(false);
-      }
+    try {
+      const response = await axios.post(
+        url,
+        {
+          email: enteredEmail,
+          password: enteredPassword,
+          returnSecureToken: true,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      const errorDetails = error.response.data.error;
+      alert(errorDetails.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
