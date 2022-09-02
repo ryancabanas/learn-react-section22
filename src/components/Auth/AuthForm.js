@@ -21,13 +21,12 @@ const AuthForm = () => {
 
     setIsLoading(true);
     let url;
+    const apiKey = process.env.REACT_APP_API_KEY;
 
     if (isLogin) {
-      url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCGSc-FGN6wWEFYCZJeg-iZar0kgMfY0fM';
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`;
     } else {
-      url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCGSc-FGN6wWEFYCZJeg-iZar0kgMfY0fM';
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`;
     }
 
     try {
