@@ -1,10 +1,12 @@
 import { useState, useRef, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import AuthContext from '../../store/auth-context';
 
 import classes from './AuthForm.module.css';
 
 const AuthForm = () => {
+  const history = useHistory();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
@@ -49,6 +51,7 @@ const AuthForm = () => {
       );
 
       authCtx.login(response.data.idToken);
+      history.replace('/');
     } catch (error) {
       const errorDetails = error.response.data.error;
       alert(errorDetails.message);
