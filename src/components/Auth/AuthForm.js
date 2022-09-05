@@ -50,7 +50,10 @@ const AuthForm = () => {
         }
       );
 
-      authCtx.login(response.data.idToken);
+      const expirationTime = new Date(
+        new Date().getTime() + response.data.expiresIn * 1000
+      ).getTime();
+      authCtx.login(response.data.idToken, expirationTime);
       history.replace('/');
     } catch (error) {
       const errorDetails = error.response.data.error;
